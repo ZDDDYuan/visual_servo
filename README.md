@@ -1,4 +1,4 @@
-# Position-based Visual_Servo Implementation using Python
+# PBVS Implementation using Python
 
 ## Usage
 
