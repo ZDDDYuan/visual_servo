@@ -89,9 +89,9 @@ def main():
     aruco_detector.set_camera_params(camera_matrix, dist_coeffs)
     
     pbvs_controller = PBVSController(
-        kp=0.3,                       # Lower initial gain
-        max_translation_step=0.01,    # Max 1 cm per step
-        max_rotation_step=np.deg2rad(2),
+        kp=0.5,                       # Lower initial gain
+        max_translation_step=0.03,    # Max 3 cm per step
+        max_rotation_step=np.deg2rad(5),
         position_error_threshold=0.002, 
         rotation_error_threshold=np.deg2rad(1.0)
     )
@@ -153,7 +153,7 @@ def main():
 
             # G. Execute motion
             target_tcp_ur = se3_to_ur_pose(T_base_ee_des)
-            robot.servo_l(target_tcp_ur, time=0.033, lookahead_time=0.15)
+            robot.servo_l(target_tcp_ur, time=0.033, lookahead_time=0.1)
 
             if cv2.waitKey(1) == 27: break # ESC to exit
 
